@@ -35,17 +35,20 @@ export class Statistics extends React.Component {
     };
 
     countTotalFeedback = () => {
-        return this.state.good + this.state.neutral + this.state.bad;
+        const {good, neutral, bad} = this.state;
+        return good + neutral + bad;
     };
 
     countPositiveFeedbackPercentage = () => {
-        const totalPositivePersent = Math.round((this.state.good/(this.state.good + this.state.neutral + this.state.bad))*100);
+        const {good, neutral, bad} = this.state;
+        const totalPositivePersent = Math.round((good/(good + neutral + bad))*100);
         return totalPositivePersent ? totalPositivePersent : 0;
     }
 
     render () {
         const total = this.countTotalFeedback();
         const totalPositivePersent = this.countPositiveFeedbackPercentage();
+        const {good, neutral, bad} = this.state;
         return (
             <section className={css.statistics}>
               <h2 className={css.title}>Please leave feedback</h2>
@@ -68,9 +71,9 @@ export class Statistics extends React.Component {
               </div>
               <h2 className={css.title}>Statistics</h2>
                 <div className={css.stat}>
-                    <span className={css.text}>Good: {this.state.good}</span> 
-                    <span className={css.text}>Neutral: {this.state.neutral}</span>
-                    <span className={css.text}>Bad: {this.state.bad}</span>
+                    <span className={css.text}>Good: {good}</span> 
+                    <span className={css.text}>Neutral: {neutral}</span>
+                    <span className={css.text}>Bad: {bad}</span>
                     <span className={css.text}>Total: {total}</span>
                     <span className={css.text}>Positive feedback: {totalPositivePersent}%</span>
                 </div>
