@@ -1,0 +1,24 @@
+.statistics {
+    margin: 0 auto;
+}
+.title {
+    padding: 10px;
+    margin: 0;
+}
+.buttonList {
+    padding: 15px;
+}
+.button {
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10%;
+}
+.stat {
+    padding: 15px;
+}
+.text {
+    display: block;
+    margin-bottom: 5px;
+}
