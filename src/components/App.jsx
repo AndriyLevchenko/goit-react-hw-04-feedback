@@ -2,6 +2,7 @@ import React from 'react';
 import {Section} from 'components/Section/Section.jsx';
 import {FeedbackOptions} from 'components/FeedbackOptions/FeedbackOptions.jsx'
 import {Statistics} from 'components/Statistics/Statistics.jsx';
+import { Notification } from 'components/Notification/Notification.jsx';
 
 export class App extends React.Component {
     state = {
@@ -55,11 +56,15 @@ export class App extends React.Component {
               />
             </Section>
             <Section title="Statistics">
-              <Statistics 
-                onState = {this.state}
-                total = {total}
-                totalPositivePersent = {totalPositivePersent}
-              />
+            {total ? (
+            <Statistics 
+              onState = {this.state}
+              total = {total}
+              totalPositivePersent = {totalPositivePersent}
+            />
+            ) : (
+              <Notification message="There is no feedback" />
+            )}
             </Section>
           </div>
         ) 
