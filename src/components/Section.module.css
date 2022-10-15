@@ -1,0 +1,11 @@
+.title {
+    padding: 10px;
+    margin: 0;
+}
+.stat {
+    padding: 15px;
+}
+.text {
+    display: block;
+    margin-bottom: 5px;
+}

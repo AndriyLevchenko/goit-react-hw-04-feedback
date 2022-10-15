@@ -1,6 +1,3 @@
-.statistics {
-    margin: 0 auto;
-}
 .title {
     padding: 10px;
     margin: 0;
@@ -14,11 +11,4 @@
     background-color: white;
     border: 1px solid;
     border-radius: 10%;
-}
-.stat {
-    padding: 15px;
-}
-.text {
-    display: block;
-    margin-bottom: 5px;
 }

@@ -1,9 +1,9 @@
-import {Statistics} from 'components/Statistics';
+import {Feedback} from 'components/Feedback';
 
 export const App = () => {
   return (
     <div>
-      <Statistics />
+      <Feedback />
     </div>
   );
 };
