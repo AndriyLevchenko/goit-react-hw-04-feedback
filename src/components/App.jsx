@@ -15,26 +15,6 @@ export class App extends React.Component {
     this.setState(prevState => ({
     [nameButton]: prevState[nameButton] + 1,
   }));
-
-    // switch (chellenge) {
-    //   case 'good':
-    //     this.setState(prevState => ({
-    //       good: prevState.good + 1,
-    //     }));
-    //     break;
-    //   case 'neutral':
-    //     this.setState(prevState => ({
-    //       neutral: prevState.neutral + 1,
-    //     }));
-    //     break;
-    //   case 'bad':
-    //     this.setState(prevState => ({
-    //       bad: prevState.bad + 1,
-    //     }));
-    //     break;
-    //     default:
-    //     return;
-    // }
   };
 
   countTotalFeedback = () => {
@@ -43,12 +23,13 @@ export class App extends React.Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-      const {good, neutral, bad} = this.state;
-      const totalPositivePersent = Math.round((good/(good + neutral + bad))*100);
-      return totalPositivePersent ? totalPositivePersent : 0;
+      const {good} = this.state;
+      const totalPositivePersent = Math.round((good/(this.countTotalFeedback()))*100);
+      return totalPositivePersent ?? 0;
   }
 
   render () {
+    const {good, neutral, bad} = this.state;
     const total = this.countTotalFeedback();
     const totalPositivePersent = this.countPositiveFeedbackPercentage();
     return (
@@ -62,7 +43,9 @@ export class App extends React.Component {
         <Section title="Statistics">
           {total ? 
           (<Statistics 
-            onState = {this.state}
+            good = {good}
+            neutral = {neutral}
+            bad = {bad}
             total = {total}
             totalPositivePersent = {totalPositivePersent}
             />
