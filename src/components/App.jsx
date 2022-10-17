@@ -6,31 +6,35 @@ import { Notification } from 'components/Notification/Notification.jsx';
 
 export class App extends React.Component {
   state = {
-      good: 0,
-      neutral: 0,
-      bad: 0
+    good: 0,
+    neutral: 0,
+    bad: 0
   };
 
-  onButtonClick = (chellenge) => {
-    switch (chellenge) {
-      case 'good':
-        this.setState(prevState => ({
-          good: prevState.good + 1,
-        }));
-        break;
-      case 'neutral':
-        this.setState(prevState => ({
-          neutral: prevState.neutral + 1,
-        }));
-        break;
-      case 'bad':
-        this.setState(prevState => ({
-          bad: prevState.bad + 1,
-        }));
-        break;
-      default:
-        return;
-    }
+  onButtonClick = nameButton => {
+    this.setState(prevState => ({
+    [nameButton]: prevState[nameButton] + 1,
+  }));
+
+    // switch (chellenge) {
+    //   case 'good':
+    //     this.setState(prevState => ({
+    //       good: prevState.good + 1,
+    //     }));
+    //     break;
+    //   case 'neutral':
+    //     this.setState(prevState => ({
+    //       neutral: prevState.neutral + 1,
+    //     }));
+    //     break;
+    //   case 'bad':
+    //     this.setState(prevState => ({
+    //       bad: prevState.bad + 1,
+    //     }));
+    //     break;
+    //     default:
+    //     return;
+    // }
   };
 
   countTotalFeedback = () => {
